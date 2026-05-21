@@ -1,4 +1,4 @@
-﻿<Window x:Class="Assignment2.App.Views.MainWindow"
+<Window x:Class="Assignment2.App.Views.MainWindow"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         Title="Shell"
@@ -47,4 +47,23 @@
                      DisplayMemberPath="Surname"/>
 		</Grid>
 	</Grid>
+<TextBlock Text="Animals"
+           FontWeight="Bold"
+           FontSize="16"
+           Margin="0,15,0,0"/>
+
+<StackPanel Orientation="Horizontal"
+            Margin="0,8,0,8">
+    <Button Content="Add Animal"
+            Width="120"
+            Command="{Binding AddAnimalCommand}"/>
+
+    <Button Content="Edit Animal"
+            Width="120"
+            Margin="8,0,0,0"
+            Command="{Binding EditAnimalCommand}"/>
+</StackPanel>
+
+<ListBox ItemsSource="{Binding Animals}"
+         SelectedItem="{Binding SelectedAnimal}"/>
 </Window>

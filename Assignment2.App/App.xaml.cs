@@ -23,7 +23,8 @@ namespace Assignment2.App
             store.Load("data");
 
             var customerService = new CustomerService(store);
-            var mainViewModel = new MainViewModel(customerService);
+            var animalService = new AnimalService(store);
+            var mainViewModel = new MainViewModel(customerService, animalService);
 
             var mainWindow = new Views.MainWindow
             {

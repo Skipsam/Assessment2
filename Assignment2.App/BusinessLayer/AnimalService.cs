@@ -10,6 +10,7 @@ namespace Assignment2.App.BusinessLayer
     {
         private readonly IDataStore store;
 
+        public List<Animal> Animals => store.Animals;
         public AnimalService(IDataStore store)
         {
             this.store = store;
