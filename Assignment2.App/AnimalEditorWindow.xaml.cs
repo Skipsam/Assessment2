@@ -9,11 +9,11 @@ namespace Assignment2.App
     /// </summary>
     public partial class AnimalEditorWindow : Window
     {
-        private readonly Store dataStore;
+        private readonly CSVStore dataStore;
         private Animal? animal;
         private Customer? customer;
 
-        public AnimalEditorWindow(Store dataStore)
+        public AnimalEditorWindow(CSVStore dataStore)
         {
             InitializeComponent();
             this.dataStore = dataStore;
