@@ -14,7 +14,7 @@ namespace Assignment2.App.BusinessLayer
         {
             this.store = store;
         }
-
+        public List<Customer> Customers => store.Customers;
         public Customer AddCustomer()
         {
             return store.AddCustomer();
