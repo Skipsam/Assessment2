@@ -1,4 +1,6 @@
-﻿using System;
+﻿using Assignment2.App.BusinessLayer;
+using Assignment2.App.ViewModel;
+using System;
 using System.Collections.Generic;
 using System.Configuration;
 using System.Data;
@@ -13,5 +15,22 @@ namespace Assignment2.App
     /// </summary>
     public partial class App : Application
     {
+        protected override void OnStartup(StartupEventArgs e)
+        {
+            base.OnStartup(e);
+
+            IDataStore store = new CSVStore();
+            store.Load("data");
+
+            var customerService = new CustomerService(store);
+            var mainViewModel = new MainViewModel(customerService);
+
+            var mainWindow = new Views.MainWindow
+            {
+                DataContext = mainViewModel
+            };
+
+            mainWindow.Show();
+        }
     }
 }
