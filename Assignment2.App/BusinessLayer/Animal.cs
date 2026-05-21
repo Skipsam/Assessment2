@@ -15,28 +15,7 @@ namespace Assignment2.App.BusinessLayer
         public string? Sex { get; set; }
 
         public string? Type { get; set; }
-
-        public static Animal FromCsv(string line)
-        {
-            var parts = line.Split(',');
-            var animal = new Animal
-            {
-                Id = int.Parse(parts[0]),
-                Name = parts[1],
-                Type = parts[2],
-                Breed = parts[3],
-                Sex = parts[4],
-                OwnerId = int.Parse(parts[5]),
-            };
-
-            return animal;
-        }
-
-        public static void WriteHeaderToCsv(TextWriter writer)
-        {
-            writer.WriteLine("Id,Name,Type,Breed,Sex,OwnerId");
-        }
-
+        //Removed the FromCsv and WriteToCsv methods from the Animal class as they are more related to storage than the model itself, and moved them to the CSVStore class to keep separation of concerns across the application
         public bool CheckIfValid()
         {
             return !(string.IsNullOrEmpty(Name)
@@ -49,18 +28,7 @@ namespace Assignment2.App.BusinessLayer
         {
             return $"{Name} [{Type}]";
         }
-
-        public void WriteToCsv(TextWriter writer)
-        {
-            writer.WriteLine(string.Join(',', new[]
-            {
-                Id.ToString(),
-                Name ?? string.Empty,
-                Type ?? string.Empty,
-                Breed ?? string.Empty,
-                Sex ?? string.Empty,
-                OwnerId.ToString(),
-            }));
-        }
     }
 }
+
+       

@@ -38,63 +38,7 @@ namespace Assignment2.Tests
             // Assert
             Assert.Equal("Bobby [Cat]", textValue);
         }
-        
-        [Fact]
-        public void FromCsvCreatesAnimalCorrectly()
-        {
-            // Tests that an animal can be loaded correctly from CSV storage.
-            // This is important because the current system stores data in CSV files.
-            //Arrange
-            var line = "1,Bobby,Cat,Siamese,Male,2";
-
-            //Act
-            var animal = Animal.FromCsv(line);
-
-            //Assert
-            Assert.Equal(1, animal.Id);
-            Assert.Equal("Bobby", animal.Name);
-            Assert.Equal("Cat", animal.Type);
-            Assert.Equal("Siamese", animal.Breed);
-            Assert.Equal("Male", animal.Sex);
-            Assert.Equal(2, animal.OwnerId);
-        }
-        
-        [Fact]
-        public void WriteHeaderToCsvWritesCorrectHeader()
-        {
-            // Tests that the CSV header matches the expected animal file format.
-            using var writer = new StringWriter();
-
-            //Act
-            Animal.WriteHeaderToCsv(writer);
-
-            //Assert
-            Assert.Equal("Id,Name,Type,Breed,Sex,OwnerId" + Environment.NewLine, writer.ToString());
-        }
-        [Fact]
-        public void WriteToCsvWritesAnimalCorrectly()
-        {
-            // Tests that animal data is saved in the correct CSV format.
-            //Arrange
-            var animal = new Animal
-            {
-                Id = 1,
-                Name = "Bobby",
-                Type = "Cat",
-                Breed = "Siamese",
-                Sex = "Male",
-                OwnerId = 2
-            };
-
-            using var writer = new StringWriter();
-            
-            //Act
-            animal.WriteToCsv(writer);
-
-            //Assert
-            Assert.Equal("1,Bobby,Cat,Siamese,Male,2" + Environment.NewLine, writer.ToString());
-        }
-
+        //Further tests were moved from AnimalTests.cs to CsvStoreTests.cs to better organize tests related to CSV functionality.
 
     }
 }
