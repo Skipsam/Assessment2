@@ -1,0 +1,50 @@
+﻿<Window x:Class="Assignment2.App.Views.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="Shell"
+        Height="360"
+        Width="650">
+	<Grid Margin="10">
+		<Grid.ColumnDefinitions>
+			<ColumnDefinition Width="130"/>
+			<ColumnDefinition Width="*"/>
+		</Grid.ColumnDefinitions>
+
+		<StackPanel Grid.Column="0">
+			<Button Content="Customers" Margin="0,0,0,5"/>
+			<Button Content="Animals" Margin="0,0,0,5"/>
+			<Button Content="Exit"/>
+		</StackPanel>
+
+		<Grid Grid.Column="1" Margin="10,0,0,0">
+			<Grid.RowDefinitions>
+				<RowDefinition Height="Auto"/>
+				<RowDefinition Height="Auto"/>
+				<RowDefinition Height="*"/>
+			</Grid.RowDefinitions>
+
+			<TextBlock Text="Customers"
+                       FontWeight="Bold"
+                       FontSize="16"
+                       Grid.Row="0"/>
+
+			<StackPanel Orientation="Horizontal"
+                        Grid.Row="1"
+                        Margin="0,8,0,8">
+				<Button Content="Add Customer"
+                        Width="120"
+                        Command="{Binding AddCustomerCommand}"/>
+
+				<Button Content="Edit Customer"
+                        Width="120"
+                        Margin="8,0,0,0"
+                        Command="{Binding EditCustomerCommand}"/>
+			</StackPanel>
+
+			<ListBox Grid.Row="2"
+                     ItemsSource="{Binding Customers}"
+                     SelectedItem="{Binding SelectedCustomer}"
+                     DisplayMemberPath="Surname"/>
+		</Grid>
+	</Grid>
+</Window>
