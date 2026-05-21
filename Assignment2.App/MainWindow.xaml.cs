@@ -8,7 +8,7 @@ namespace Assignment2.App
     /// </summary>
     public partial class MainWindow : Window
     {
-        private readonly Store dataStore = new();
+        private readonly CSVStore dataStore = new();
 
         public MainWindow()
         {

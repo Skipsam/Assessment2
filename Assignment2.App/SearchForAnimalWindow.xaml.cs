@@ -9,10 +9,10 @@ namespace Assignment2.App
     /// </summary>
     public partial class SearchForAnimalWindow : Window
     {
-        private readonly Store dataStore;
+        private readonly CSVStore dataStore;
         private Customer? customer;
 
-        public SearchForAnimalWindow(Store dataStore)
+        public SearchForAnimalWindow(CSVStore dataStore)
         {
             InitializeComponent();
             this.dataStore = dataStore;

@@ -8,10 +8,10 @@ namespace Assignment2.App
     /// </summary>
     public partial class CustomerEditorWindow : Window
     {
-        private readonly Store dataStore;
+        private readonly CSVStore dataStore;
         private Customer? customer;
 
-        public CustomerEditorWindow(Store dataStore)
+        public CustomerEditorWindow(CSVStore dataStore)
         {
             InitializeComponent();
             this.dataStore = dataStore;
